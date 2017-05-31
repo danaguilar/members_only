@@ -1,0 +1,15 @@
+<%= flash[:success] %>
+<%= flash[:error] %>
+<p> Make a post <%= @current_user.name %> </p>
+<%= form_for(@post) do |form| %>
+  <!-- Title -->
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <br>
+  <!-- Body -->
+  <%= form.label :body %>
+  <%= form.text_area :body %>
+ <br>
+  <!-- Submit button -->
+  <%= form.submit "Submit Post" %>
+  <% end %>

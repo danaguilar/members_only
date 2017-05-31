@@ -1,0 +1,16 @@
+<% if @current_user %>
+  <%= link_to(:new_post) {"Create new post"} %> <br>
+  <%= link_to('/logout', method: :delete) {"Log out"} %>
+<% else %>
+  <%= link_to(:login) {"Log in"} %> to join the fun!
+<% end %>
+
+<% @posts.each do |post| %>
+  <h3><%= post.title %></h3>
+  <p><%= post.body %></p>
+  <% if @current_user %>
+  <i><%= post.user.name %> </i>
+  <% end %>
+  <%= post.updated_at %>
+  <br><br>
+<%  end %>

@@ -1,0 +1,18 @@
+<%= flash[:success] %>
+<%= flash[:fail] %>
+<% if @current_user %>
+<p> Welcome <%= @current_user.name %> </p>
+<p><%= link_to('/logout', method: :delete) {"Sign Out"} %> </p>
+<%else %>
+<p> Please log in </p>
+<% end %>
+  <%= form_for(:session) do |f| %>
+ <!-- Email -->
+ <%= f.label :email %>
+ <%= f.text_field :email %>
+ <!-- Password -->
+ <%= f.label :password %>
+ <%= f.password_field :password %>
+ <!-- Submit Button -->
+ <%= f.submit "Log in!" %>
+<% end %>
